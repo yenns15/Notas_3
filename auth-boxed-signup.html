@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <title>SignUp Notes web </title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico"/>
+    <link href="assets/layouts/modern-light-menu/css/light/loader.css" rel="stylesheet" type="text/css" />
+    <link href="assets/layouts/modern-light-menu/css/dark/loader.css" rel="stylesheet" type="text/css" />
+    <script src="assets/layouts/modern-light-menu/loader.js"></script>
+    
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    
+    <link href="assets/layouts/modern-light-menu/css/light/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/light/authentication/auth-boxed.css" rel="stylesheet" type="text/css" />
+    
+    <link href="assets/layouts/modern-light-menu/css/dark/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/dark/authentication/auth-boxed.css" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    
+</head>
+<body class="form">
+
+    <!-- BEGIN LOADER -->
+    <div id="load_screen"> <div class="loader"> <div class="loader-content">
+        <div class="spinner-grow align-self-center"></div>
+    </div></div></div>
+    <!--  END LOADER -->
+
+    <div class="auth-container d-flex">
+
+        <div class="container mx-auto align-self-center">
+    
+            <div class="row">
+    
+                <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-8 col-12 d-flex flex-column align-self-center mx-auto">
+                    <div class="card mt-3 mb-3">
+                        <div class="card-body">
+    
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <h2>Únete</h2>
+                                    <p>Ingrese su correo electrónico y contraseña para registrarse</p>
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                            <label class="form-label">Correo electrónico</label>
+                                            <input id="emailInput" type="email" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="mb-3">
+                                            <label class="form-label">Contraseña</label>
+                                            <input id="passwordInput" type="password" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="mb-4">
+                                            <button id="signUpButton" class="btn btn-secondary w-100">Registrar</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 mb-4">
+                                        <div class="">
+                                            <div class="seperator">
+                                                <hr>
+                                                <div class="seperator-text"> <span>O continuar con</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-50 col-12">
+                                        <div class="mb-4">
+                                            <button class="btn  btn-social-login w-100 " id="googleLogin">
+                                                <img src="assets/img/google-gmail.svg" alt="" class="img-fluid">
+                                                <span class="btn-text-inner">Google</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-50 col-12">
+                                        <div class="mb-4">
+                                            <button class="btn  btn-social-login w-100 " id="githubButton">
+                                                <img src="assets/img/github-icon.svg" alt="" class="img-fluid">
+                                                <span class="btn-text-inner">GitHub</span>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="text-center">
+                                            <p class="mb-0">¿Ya tienes una cuenta? <a href="auth-boxed-signin.html" class="text-warning">Inicia sesión</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+
+    </div>
+    <script src="firebase-auth.js" type="module" defer></script>
+        <!-- Modal de correo ya registrado -->
+<div class="modal fade" id="emailExistsModal" tabindex="-1" aria-labelledby="emailExistsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="emailExistsModalLabel">Correo ya registrado</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                El correo electrónico que intenta registrar ya se encuentra registrado. Por favor, utilice otro correo electrónico o inicie sesión con su cuenta existente.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="githubErrorModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Error de autenticación</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Este correo ya está registrado con otro proveedor. Por favor, inicie sesión con el proveedor con el que se registró anteriormente.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
