@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
     
-        fetch(`https://localhost:7061/api/Note/${_id}?idToken=${idTokenGlobal}`, {
+        fetch(`http://localhost:5272/api/Note/${_id}?idToken=${idTokenGlobal}`, {
             method: 'DELETE'
         })
         .then(response => {
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function loadNotes(idToken) {
-        fetch('https://localhost:7061/api/Note?idToken=' + idToken, {
+        fetch('http://localhost:5272/api/Note?idToken=' + idToken, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-            fetch('https://localhost:7061/api/Note?idToken=' + idTokenGlobal, {
+            fetch('http://localhost:5272/api/Note?idToken=' + idTokenGlobal, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
